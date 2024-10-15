@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gravação de Vídeo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gravação de Vídeo</h1>
+      <video id="videoPreview" autoplay playsinline muted></video>
+      <div class="controls">
+        <button id="startRecording">Iniciar Gravação</button>
+        <button id="stopRecording" disabled>Finalizar Gravação</button>
+        <button id="downloadVideo" disabled>Baixar Vídeo</button>
+        <button id="uploadVideo" disabled>Enviar para o Firebase</button>
+      </div>
+      <p id="timer">Tempo restante: 60s</p>
+      <p id="feedback"></p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
