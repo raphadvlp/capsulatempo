@@ -1,3 +1,10 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
+
 let mediaRecorder;
 let recordedBlobs = [];
 let stream;
@@ -11,7 +18,6 @@ const uploadButton = document.getElementById("uploadVideo");
 const timerDisplay = document.getElementById("timer");
 const feedback = document.getElementById("feedback");
 const videoPreview = document.getElementById("videoPreview");
-
 // Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyCvBpaefejjMNPTN_A-yV5s6F0_okQFJZk",
@@ -23,8 +29,8 @@ const firebaseConfig = {
 };
 
 // Inicializar Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const storage = firebase.storage();
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
 
 async function startRecording() {
   stream = await navigator.mediaDevices.getUserMedia({
@@ -86,8 +92,8 @@ function downloadVideo() {
 
 function uploadVideo() {
   const blob = new Blob(recordedBlobs, { type: "video/mp4" });
-  const storageRef = storage.ref(`videos/${Date.now()}.mp4`);
-  const uploadTask = storageRef.put(blob);
+  const storageRef = ref(storage, `videos/${Date.now()}.mp4`);
+  const uploadTask = uploadBytesResumable(storageRef, blob);
 
   uploadTask.on(
     "state_changed",
