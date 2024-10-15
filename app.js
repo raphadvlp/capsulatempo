@@ -62,6 +62,12 @@ function stopRecording() {
   uploadButton.disabled = false;
   clearInterval(countdown);
   resetTimer();
+
+  // Exibir a pré-visualização do vídeo gravado
+  const superBuffer = new Blob(recordedBlobs, { type: "video/mp4" });
+  videoPreview.src = window.URL.createObjectURL(superBuffer);
+  videoPreview.controls = true; // Adiciona controles para o usuário pausar/reproduzir
+  videoPreview.muted = false; // Habilita o som na pré-visualização
 }
 
 function updateTimer() {
@@ -99,6 +105,10 @@ function uploadVideo() {
     "state_changed",
     (snapshot) => {
       // Pode exibir o progresso se necessário
+      // Cálculo do progresso
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      progressBar.value = progress;
+      feedback.textContent = `Progresso do upload: ${Math.round(progress)}%`;
     },
     (error) => {
       feedback.textContent = "Erro ao enviar o vídeo!";
