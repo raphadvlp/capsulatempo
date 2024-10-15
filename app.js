@@ -53,7 +53,7 @@ async function startRecording() {
   stopButton.disabled = false;
   countdown = setInterval(updateTimer, 1000);
 }
-/* funcional sem o superBuffer
+
 function stopRecording() {
   mediaRecorder.stop();
   stream.getTracks().forEach((track) => track.stop());
@@ -62,36 +62,6 @@ function stopRecording() {
   uploadButton.disabled = false;
   clearInterval(countdown);
   resetTimer();
-
-  // Exibir a pré-visualização do vídeo gravado
-  const superBuffer = new Blob(recordedBlobs, { type: "video/mp4" });
-  videoPreview.src = window.URL.createObjectURL(superBuffer);
-  videoPreview.controls = true; // Adiciona controles para o usuário pausar/reproduzir
-  videoPreview.muted = false; // Habilita o som na pré-visualização
-}*/
-
-function stopRecording() {
-  // Verifique se o mediaRecorder está ativo antes de tentar parar
-  if (mediaRecorder && mediaRecorder.state === "recording") {
-    mediaRecorder.stop(); // Para a gravação
-  }
-
-  // Interrompe todos os tracks do stream
-  if (stream) {
-    stream.getTracks().forEach((track) => track.stop());
-  }
-
-  stopButton.disabled = true; // Desabilita o botão de parar gravação
-  downloadButton.disabled = false; // Habilita o botão de download
-  uploadButton.disabled = false; // Habilita o botão de upload
-  clearInterval(countdown); // Limpa o temporizador
-  resetTimer(); // Reseta o timer
-
-  // Exibir a pré-visualização do vídeo gravado
-  const superBuffer = new Blob(recordedBlobs, { type: "video/mp4" });
-  videoPreview.src = window.URL.createObjectURL(superBuffer);
-  videoPreview.controls = true; // Adiciona controles para o usuário pausar/reproduzir
-  videoPreview.muted = false; // Habilita o som na pré-visualização
 }
 
 function updateTimer() {
