@@ -107,14 +107,18 @@ button img {
   background-color: rgb(65, 65, 151);
 }
 
+#downloadVideo {
+  background-color: #2a81bd;
+}
+
+#downloadVideo:hover {
+  background-color: #1c5880;
+}
+
 #timer {
   color: #f0f0f0;
   font-size: 40px;
   font-weight: bold;
-}
-
-#downloadVideo {
-  background-color: #2a81bd;
 }
 
 #feedback {
