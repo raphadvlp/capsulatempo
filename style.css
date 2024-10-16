@@ -95,8 +95,16 @@ button img {
   background-color: rgb(255, 54, 54);
 }
 
+#stopRecording:hover {
+  background-color: rgb(158, 33, 33);
+}
+
 #uploadVideo {
   background-color: rgb(105, 105, 240);
+}
+
+#uploadVideo:hover {
+  background-color: rgb(65, 65, 151);
 }
 
 #timer {
