@@ -104,3 +104,14 @@ button img {
 #downloadVideo {
   background-color: #2a81bd;
 }
+
+#feedback {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-size: 25px;
+  background-color: rgb(206, 183, 126);
+  border-radius: 10px;
+  padding: 5px 0px;
+}

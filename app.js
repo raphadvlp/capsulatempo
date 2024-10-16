@@ -111,6 +111,7 @@ function uploadVideo() {
     () => {
       feedback.textContent = "Vídeo enviado com sucesso!";
       feedback.style.color = "green";
+      feedback.style.display = "flex";
     }
   );
 }
