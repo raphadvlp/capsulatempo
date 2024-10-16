@@ -1,7 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Dancing Script", sans-serif;
 }
 
 body {
@@ -11,10 +16,20 @@ body {
   align-items: center;
   height: 100vh;
   background-color: #f0f0f0;
+  background-image: url("assets/image/bg2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container {
   text-align: center;
+}
+
+.container h1 {
+  color: #f0f0f0;
+  margin-bottom: 10px;
+  font-family: "Dancing Script";
+  font-size: 40px;
 }
 
 video {
@@ -22,13 +37,23 @@ video {
   max-width: 400px;
   height: auto;
   background-color: #000;
-  margin-bottom: 10px;
+  margin-bottom: 70px;
+}
+
+.controls {
+  display: flex;
+  grid-column: auto;
+  justify-content: center;
 }
 
 .controls button {
   margin: 5px;
   padding: 10px;
   font-size: 16px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  border: none;
 }
 
 #timer {
@@ -40,5 +65,37 @@ video {
 #feedback {
   margin-top: 20px;
   color: green;
+  font-weight: bold;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+#startRecording {
+  background-color: #a7a7a7;
+}
+
+#stopRecording {
+  background-color: rgb(255, 54, 54);
+}
+
+#uploadVideo {
+  background-color: rgb(105, 105, 240);
+}
+
+#timer {
+  color: #f0f0f0;
+  font-size: 40px;
   font-weight: bold;
 }
