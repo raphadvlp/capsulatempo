@@ -19,6 +19,7 @@ body {
   background-image: url("assets/image/bg2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .container {
@@ -98,4 +99,8 @@ button img {
   color: #f0f0f0;
   font-size: 40px;
   font-weight: bold;
+}
+
+#downloadVideo {
+  background-color: #2a81bd;
 }
