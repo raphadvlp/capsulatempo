@@ -87,6 +87,10 @@ button img {
   background-color: #a7a7a7;
 }
 
+#startRecording:hover {
+  background-color: #6d6d6d;
+}
+
 #stopRecording {
   background-color: rgb(255, 54, 54);
 }
