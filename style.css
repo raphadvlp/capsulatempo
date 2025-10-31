@@ -131,3 +131,27 @@ button img {
   border-radius: 10px;
   padding: 5px 0px;
 }
+
+.link-videos {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#verVideos {
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#verVideos:hover {
+  background-color: #ff809a;
+  transform: scale(1.05);
+}

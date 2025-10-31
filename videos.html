@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>♥ Vídeos - Cápsula do Tempo ♥</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="videos.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>♥ Gabriel & Laryssa ♥</h1>
+        <button id="btnVoltar" class="btn-voltar">⟵ Voltar</button>
+      </div>
+    </header>
+
+    <!-- Tela de senha -->
+    <div id="passwordScreen" class="password-screen">
+      <h2>🔒 Acesso Restrito</h2>
+      <p>Digite a senha para ver os vídeos:</p>
+      <input type="password" id="passwordInput" placeholder="Senha..." />
+      <button id="btnEntrar">Entrar</button>
+      <p id="msgErro" style="color: #ff8080; display: none">
+        Senha incorreta 😢
+      </p>
+    </div>
+
+    <!-- Galeria -->
+    <div id="gallery" class="gallery" style="display: none"></div>
+    <p id="loading" class="loading" style="display: none">
+      Carregando vídeos...
+    </p>
+
+    <footer>Feito com 💖 por <b>Raphael Rodrigues</b></footer>
+
+    <script type="module" src="videos.js"></script>
+  </body>
+</html>

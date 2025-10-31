@@ -10,6 +10,7 @@
     <div class="container">
       <h1>♥ Gabriel & Laryssa ♥</h1>
       <video id="videoPreview" autoplay playsinline muted></video>
+
       <div class="controls">
         <button id="startRecording"><img src="assets/image/play.svg" /></button>
         <button id="stopRecording" disabled>
@@ -22,17 +23,23 @@
           <img src="assets/image/send.svg" />
         </button>
       </div>
-      <p id="timer">60s</p>
-      <!-- <progress
-        id="uploadProgress"
-        value="0"
-        max="100"
-        style="width: 100%"
-      ></progress> -->
 
+      <p id="timer">60s</p>
       <p id="feedback"></p>
+
+      <!-- 🔗 NOVO BOTÃO PARA VER OS VÍDEOS -->
+      <div class="link-videos">
+        <button id="verVideos">🎬 Ver vídeos enviados</button>
+      </div>
     </div>
 
     <script type="module" src="app.js"></script>
+
+    <script>
+      // Redireciona para a página de vídeos ao clicar no botão
+      document.getElementById("verVideos").addEventListener("click", () => {
+        window.location.href = "videos.html";
+      });
+    </script>
   </body>
 </html>

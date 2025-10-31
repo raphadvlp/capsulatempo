@@ -1,0 +1,224 @@
+/* 🌹 Tema romântico e moderno */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #2b1a25 0%, #000 100%);
+  background-attachment: fixed;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* 💖 Cabeçalho fixo */
+header {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  text-align: center;
+  padding: 20px 10px;
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(28px, 5vw, 42px);
+  color: #ffd6de;
+  text-shadow: 0 0 8px rgba(255, 182, 193, 0.8);
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 192, 203, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* 🌷 Cabeçalho com botão de voltar */
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-content h1 {
+  font-size: 30px;
+}
+
+/* 💞 Botão de voltar */
+.btn-voltar {
+  background: linear-gradient(135deg, #ffd6de, #ffb3c1);
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 192, 203, 0.3);
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-voltar:hover {
+  background: linear-gradient(135deg, #ffb3c1, #ff99ad);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 192, 203, 0.4);
+}
+
+/* 💍 Tela de senha */
+.password-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  padding: 30px 20px;
+  background: transparent;
+}
+
+.password-screen h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(26px, 5vw, 32px);
+  color: #ffd6de;
+  margin-bottom: 10px;
+}
+
+.password-screen p {
+  color: #e8d6d9;
+  font-size: clamp(14px, 4vw, 16px);
+  margin-bottom: 18px;
+}
+
+/* 🌸 Caixa central da senha */
+.password-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.15);
+  backdrop-filter: blur(8px);
+  width: 90%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 💎 Inputs e botão */
+.password-screen input {
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 192, 203, 0.4);
+  outline: none;
+  text-align: center;
+  margin-bottom: 15px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.password-screen input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.password-screen input:focus {
+  border-color: #ffb3c1;
+  box-shadow: 0 0 10px rgba(255, 179, 193, 0.3);
+}
+
+.password-screen button {
+  background: linear-gradient(135deg, #ffd6de, #ffb3c1);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #222;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+}
+
+.password-screen button:hover {
+  background: linear-gradient(135deg, #ffb3c1, #ff99ad);
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(255, 192, 203, 0.4);
+}
+
+/* ❤️ Mensagem de erro */
+#msgErro {
+  color: #ff8080;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* 💫 Galeria */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 60px 5vw;
+  justify-items: center;
+  flex: 1;
+}
+
+/* 🎥 Cartões */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 192, 203, 0.2);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(255, 182, 193, 0.08);
+  transition: all 0.35s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 35px rgba(255, 182, 193, 0.2);
+}
+
+video {
+  width: 100%;
+  border-bottom: 2px solid rgba(255, 192, 203, 0.3);
+  background: #000;
+}
+
+/* 🌙 Rodapé */
+footer {
+  text-align: center;
+  padding: 20px 10px;
+  color: #d9b6bc;
+  font-size: clamp(12px, 2.5vw, 14px);
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 192, 203, 0.2);
+}
+
+/* 📱 Responsividade geral */
+@media (max-width: 480px) {
+  .password-box {
+    padding: 20px 15px;
+  }
+
+  .password-screen input,
+  .password-screen button {
+    font-size: 15px;
+  }
+
+  .gallery {
+    padding: 40px 15px;
+    gap: 20px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  footer {
+    padding: 15px 5px;
+  }
+}
