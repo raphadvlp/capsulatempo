@@ -6,6 +6,8 @@
         getDownloadURL,
       } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
 
+            import { list } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
+
       // 🔥 Configuração Firebase
       const firebaseConfig = {
         apiKey: "AIzaSyCvBpaefejjMNPTN_A-yV5s6F0_okQFJZk",
@@ -15,10 +17,13 @@
         messagingSenderId: "869092303974",
         appId: "1:869092303974:web:7d5b69c10147a178ddb9a7",
       };
+      console.log("Conectando ao bucket:", storage.app.options.storageBucket);
+
 
       const app = initializeApp(firebaseConfig);
       const storage = getStorage(app);
-      const videosRef = ref(storage, "videos/");
+      const videosRef = ref(storage, "videos");
+
 
       const passwordScreen = document.getElementById("passwordScreen");
       const passwordInput = document.getElementById("passwordInput");
@@ -42,44 +47,80 @@
         }
       });
 
-      async function carregarVideos() {
-        try {
-          const result = await listAll(videosRef);
-          loading.style.display = "none";
 
-          if (result.items.length === 0) {
-            gallery.innerHTML =
-              "<p style='color:#ffb3c1;font-size:18px;'>Nenhum vídeo enviado ainda 💔</p>";
-            return;
-          }
 
-          const items = result.items.reverse();
-          for (const itemRef of items) {
-            const url = await getDownloadURL(itemRef);
-            const card = document.createElement("div");
-            card.classList.add("card");
+      // async function carregarVideos() {
+      //   try {
+      //     const result = await listAll(videosRef);
+      //     loading.style.display = "none";
 
-            const videoEl = document.createElement("video");
-            videoEl.src = url;
-            videoEl.controls = true;
+      //     if (result.items.length === 0) {
+      //       gallery.innerHTML =
+      //         "<p style='color:#ffb3c1;font-size:18px;'>Nenhum vídeo enviado ainda 💔</p>";
+      //       return;
+      //     }
 
-            const info = document.createElement("div");
-            info.classList.add("info");
+      //     const items = result.items.reverse();
+      //     for (const itemRef of items) {
+      //       const url = await getDownloadURL(itemRef);
+      //       const card = document.createElement("div");
+      //       card.classList.add("card");
 
-            const fileName = document.createElement("p");
-            fileName.textContent = itemRef.name.replace(".mp4", "");
-            info.appendChild(fileName);
+      //       const videoEl = document.createElement("video");
+      //       videoEl.src = url;
+      //       videoEl.controls = true;
 
-            card.appendChild(videoEl);
-            card.appendChild(info);
-            gallery.appendChild(card);
-          }
-        } catch (error) {
-          loading.textContent = "Erro ao carregar vídeos 😢";
-          console.error(error);
-        }
-      }
+      //       const info = document.createElement("div");
+      //       info.classList.add("info");
 
+      //       const fileName = document.createElement("p");
+      //       fileName.textContent = itemRef.name.replace(".mp4", "");
+      //       info.appendChild(fileName);
+
+      //       card.appendChild(videoEl);
+      //       card.appendChild(info);
+      //       gallery.appendChild(card);
+      //     }
+      //   } catch (error) {
+      //     loading.textContent = "Erro ao carregar vídeos 😢";
+      //     console.error(error);
+      //   }
+      // }
+async function carregarVideos() {
+  try {
+    const result = await list(videosRef, { maxResults: 50 }); // até 50 vídeos
+    loading.style.display = "none";
+
+    if (!result.items.length) {
+      gallery.innerHTML =
+        "<p style='color:#ffb3c1;font-size:18px;'>Nenhum vídeo enviado ainda 💔</p>";
+      return;
+    }
+
+    for (const itemRef of result.items.reverse()) {
+      const url = await getDownloadURL(itemRef);
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const videoEl = document.createElement("video");
+      videoEl.src = url;
+      videoEl.controls = true;
+
+      const info = document.createElement("div");
+      info.classList.add("info");
+      const fileName = document.createElement("p");
+      fileName.textContent = itemRef.name.replace(".mp4", "");
+      info.appendChild(fileName);
+
+      card.appendChild(videoEl);
+      card.appendChild(info);
+      gallery.appendChild(card);
+    }
+  } catch (error) {
+    console.error("Erro ao carregar vídeos:", error);
+    loading.textContent = "Erro ao carregar vídeos 😢";
+  }
+}
         document.getElementById("btnVoltar").addEventListener("click", () => {
     window.location.href = "index.html";
   });
