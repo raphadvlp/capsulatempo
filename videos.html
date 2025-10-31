@@ -20,8 +20,21 @@
     <div id="passwordScreen" class="password-screen">
       <h2>🔒 Acesso Restrito</h2>
       <p>Digite a senha para ver os vídeos:</p>
-      <input type="password" id="passwordInput" placeholder="Senha..." />
+
+      <div class="password-container">
+        <input type="password" id="passwordInput" placeholder="Senha..." />
+        <button
+          id="togglePassword"
+          type="button"
+          class="toggle-password"
+          aria-label="Mostrar ou ocultar senha"
+        >
+          👁️
+        </button>
+      </div>
+
       <button id="btnEntrar">Entrar</button>
+
       <p id="msgErro" style="color: #ff8080; display: none">
         Senha incorreta 😢
       </p>
@@ -36,5 +49,16 @@
     <footer>Feito com 💖 por <b>Raphael Rodrigues</b></footer>
 
     <script type="module" src="videos.js"></script>
+    <script>
+      // 👁️ Alternar visibilidade da senha
+      const togglePassword = document.getElementById("togglePassword");
+      const passwordInput = document.getElementById("passwordInput");
+
+      togglePassword.addEventListener("click", () => {
+        const isPassword = passwordInput.type === "password";
+        passwordInput.type = isPassword ? "text" : "password";
+        togglePassword.textContent = isPassword ? "🙈" : "👁️";
+      });
+    </script>
   </body>
 </html>

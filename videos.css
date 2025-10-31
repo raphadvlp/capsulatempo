@@ -17,7 +17,7 @@ body {
 /* 💖 Cabeçalho fixo */
 header {
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
   text-align: center;
   padding: 20px 10px;
@@ -27,9 +27,17 @@ header {
   text-shadow: 0 0 8px rgba(255, 182, 193, 0.8);
   letter-spacing: 1px;
   border-bottom: 1px solid rgba(255, 192, 203, 0.3);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  z-index: 1000;
+}
+
+/* 🌸 Espaçamento automático após o header fixo */
+main,
+.gallery,
+.password-screen {
+  margin-top: 110px;
 }
 
 /* 🌷 Cabeçalho com botão de voltar */
@@ -104,30 +112,62 @@ header {
   align-items: center;
 }
 
-/* 💎 Inputs e botão */
-.password-screen input {
-  padding: 12px;
+/* 👁️ Campo de senha com botão ao lado (corrigido e proporcional) */
+.password-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 18px;
+}
+
+.password-container input {
+  flex: 1;
+  height: 42px;
   font-size: 15px;
   border-radius: 10px;
   border: 1px solid rgba(255, 192, 203, 0.4);
   outline: none;
-  text-align: center;
-  margin-bottom: 15px;
-  width: 100%;
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
+  text-align: center;
   transition: all 0.3s ease;
 }
 
-.password-screen input::placeholder {
+.password-container input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.password-screen input:focus {
+.password-container input:focus {
   border-color: #ffb3c1;
   box-shadow: 0 0 10px rgba(255, 179, 193, 0.3);
 }
 
+/* 👁️ Botão do olho */
+.toggle-password {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffd6de, #ffb3c1);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #222;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(255, 192, 203, 0.3);
+}
+
+.toggle-password:hover {
+  background: linear-gradient(135deg, #ffb3c1, #ff99ad);
+  transform: scale(1.08);
+}
+
+/* 💎 Botão de entrar */
 .password-screen button {
   background: linear-gradient(135deg, #ffd6de, #ffb3c1);
   border: none;
@@ -139,6 +179,7 @@ header {
   font-weight: bold;
   transition: all 0.3s ease;
   width: 100%;
+  max-width: 280px;
   box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
 }
 
@@ -175,6 +216,7 @@ header {
   transition: all 0.35s ease;
   width: 100%;
   max-width: 400px;
+  margin-bottom: 25px;
 }
 
 .card:hover {
@@ -186,10 +228,13 @@ video {
   width: 100%;
   border-bottom: 2px solid rgba(255, 192, 203, 0.3);
   background: #000;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
 }
 
 /* 🌙 Rodapé */
 footer {
+  margin-top: 40px;
   text-align: center;
   padding: 20px 10px;
   color: #d9b6bc;
